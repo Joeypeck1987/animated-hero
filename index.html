@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Hero project</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: sans-serif;
+            position: relative;
+        }
+
+        @keyframes bg {
+            0%, 100% {
+                background-color: rgba(0, 0, 0, 0.4);
+            }
+            25% {
+                background-color: rgba(255, 0 , 0, 0.4);
+            }
+            50% {
+                background-color: rgba(0, 255, 0, 0.4);
+            }
+            75% {
+                background-color: rgba(0, 0, 255, 0.4);
+            }
+        }
+
+        .slider {
+            background-color: #111;
+            color: #fff;
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: bg 4s linear infinite;
+            overflow: hidden;
+        }
+
+        .slider-container h1 {
+            margin-bottom: 20px;
+            font-size: 64px;
+            text-shadow: 0 0 5px #fff;
+        }
+
+        .desc {
+            margin: 30px 0;
+        }
+
+        .cta {
+            border: 1px solid #fff;
+            border-radius: 10px;
+            color: #fff;
+            display: inline-block;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 30px;
+            position: relative;
+            text-decoration: none;
+            transition: all 0.1s ease;
+            box-shadow: 0 0 3px #fff;
+            overflow: hidden;
+        }
+        .cta:hover {
+            background-color: rgba(0, 0, 0, 0.4);
+            box-shadow: 0 0 8px #fff;
+            color: #fff;
+            transform: scale(.98);
+        }
+
+        .wave {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: calc(100% + 22px);
+            background-color: rgba(0, 0, 0, 0.4);
+            transition: all 1.75s;
+            z-index: -1;
+        }
+
+        .cta:hover .wave {
+            top: 0;
+        }
+        .wave:before {
+            content: "";
+            position: absolute;
+            top: -22px; 
+            left: 0;
+            width: 100%;
+            height: 22px;
+            background: url(wave2.png);
+            animation: wavy 2.5s linear infinite;
+        }
+
+        @keyframes wavy {
+            0% {
+                background-position-x: 0;
+            }
+            100% {
+                background-position-x: 118px;
+            }
+        }
+
+        .slider video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider">
+
+        <video muted autoplay="autoplay" loop>
+            <source src="videos/water.mp4" type="video/mp4"/>
+        </video>
+
+        <div class="slider-container">
+            <h1>Fluid Web Developers</h1>
+            <p class="desc">Flowing developments and designs</p>
+            <a href="#" class="cta">
+                Contact us
+                <div class="wave"></div>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
